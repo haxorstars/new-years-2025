@@ -2,20 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.animate-twinkle {
+  animation: twinkle 2s infinite;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Custom styles untuk countdown */
+.countdown-container {
+  @apply flex gap-8 text-4xl;
+}
+
+.countdown-box {
+  @apply bg-white/10 p-6 rounded-lg backdrop-blur-sm min-w-[120px] text-center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.countdown-number {
+  @apply font-bold text-5xl;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.countdown-label {
+  @apply text-sm mt-2 opacity-80;
+}
+
+.title-gradient {
+  @apply bg-gradient-to-r from-yellow-300 via-red-500 to-pink-500 text-transparent bg-clip-text;
+  background-size: 200% auto;
 }
